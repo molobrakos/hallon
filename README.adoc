@@ -1,0 +1,12 @@
+= Hallon
+
+Retrieve statistics about your Hallon mobile broadband subscription
+
+ > cp .hallon-credentials.template.yaml .hallon-credentials.yaml
+ > chmod og-rw .hallon-credentials.yaml
+ <edit .hallon-credentials.yaml>
+ > ./hallon.py 
+ total left used used_pct daysleft
+ 10 4.24 5.76 58 30
+
+No licence, public domain, feel free to use for anything. Please contribute improvements/bugfixes etc.
