@@ -11,7 +11,7 @@ import yaml
 with open(".hallon-credentials.yaml") as f:
     CREDENTIALS = yaml.safe_load(f)
 
-URL = "https://www.hallon.se/mina-sidor#%s" % CREDENTIALS["id"]
+URL = "https://www.hallon.se/mina-sidor"
 br = Browser()
 br.open(URL)
 br.form = [fr for fr in br.forms() if "logga-in" in fr.action][0]
