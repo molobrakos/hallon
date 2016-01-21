@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 """
 extract usage data from hallon mobile broadband
@@ -22,7 +22,7 @@ br.form["UserName"] = CREDENTIALS["username"]
 br.form["Password"] = CREDENTIALS["password"]
 br.submit()
 
-page = Soup(br.response().read())
+page = Soup(br.response().read(), "html.parser")
 usage = page.select("p.usage")[0].text.replace(",", ".").split()
 
 left = float(usage[0])
