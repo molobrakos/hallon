@@ -6,9 +6,12 @@ extract usage data from hallon mobile broadband
 
 from mechanize import Browser
 from bs4 import BeautifulSoup as Soup
+from os import path
+import sys
 import yaml
 
-with open(".hallon-credentials.yaml") as f:
+with open(path.join(path.dirname(sys.argv[0]),
+                    ".hallon-credentials.yaml")) as f:
     CREDENTIALS = yaml.safe_load(f)
 
 URL = "https://www.hallon.se/mina-sidor"
