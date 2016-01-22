@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup as Soup
 from os import path
 import sys
 import yaml
+import json
 
 with open(path.join(path.dirname(sys.argv[0]),
                     ".hallon-credentials.yaml")) as f:
@@ -31,5 +32,7 @@ used = total-left
 used_pct = int(round(used*100/total))
 daysleft = page.select("p.usage-daysleft")[0].text.split()[0]
 
-print "total left used used_pct daysleft"
-print total, left, used, used_pct, daysleft
+print(json.dumps({"total": int(total),
+                  "left": int(left),
+                  "used": int(used_pct),
+                  "daysleft": int(daysleft)}))

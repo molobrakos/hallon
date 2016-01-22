@@ -11,7 +11,7 @@ Retrieve statistics about your Hallon mobile broadband subscription
 
 To publish to MQTT for use with e.g. Home Assistant (http://home-assistant.io) from crontab:
 
- hallon.py | csvjson -d ' ' --stream | jq 'with_entries(. + {"value": .value|tonumber})' | mosquitto_pub -h $MQTT_BROKER -u $MQTT_USER -P $MQTT_PW -i $MQTT_ID -t me/tel/hallon -q 1 -r -s
+ hallon.py | mosquitto_pub -h $MQTT_BROKER -u $MQTT_USER -P $MQTT_PW -i $MQTT_ID -t me/tel/hallon -q 1 -r -s
 
 With corresponding Home Assistant sensor configured, e.g.:
 
