@@ -29,7 +29,7 @@ usage = page.select("p.usage")[0].text.replace(",", ".").split()
 left = float(usage[0])
 total = int(usage[2])
 used = total-left
-used_pct = int(round(used*100/total))
+used_pct = round(used*100/total, 1)
 daysleft = page.select("p.usage-daysleft")[0].text.split()[0]
 
 print(json.dumps({"total": int(total),
