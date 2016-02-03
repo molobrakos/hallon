@@ -26,14 +26,14 @@ br.submit()
 page = Soup(br.response().read(), "html.parser")
 usage = page.select("p.usage")[0].text.replace(",", ".").split()
 
-left = float(usage[0])
+left = round(float(usage[0]), 2)
 total = int(usage[2])
-used = total-left
+used = round(float(total-left), 2)
 used_pct = round(used*100/total, 1)
-daysleft = page.select("p.usage-daysleft")[0].text.split()[0]
+daysleft = int(page.select("p.usage-daysleft")[0].text.split()[0])
 
-print(json.dumps({"total": int(total),
-                  "left": float(left),
-                  "used": float(used),
-                  "usedpct": float(used_pct),
-                  "daysleft": int(daysleft)}))
+print(json.dumps({"total": total,
+                  "left": left,
+                  "used": used,
+                  "usedpct": used_pct,
+                  "daysleft": daysleft}))
