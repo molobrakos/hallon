@@ -34,5 +34,6 @@ daysleft = page.select("p.usage-daysleft")[0].text.split()[0]
 
 print(json.dumps({"total": int(total),
                   "left": float(left),
-                  "used": float(used_pct),
+                  "used": float(used),
+                  "usedpct": float(used_pct),
                   "daysleft": int(daysleft)}))
